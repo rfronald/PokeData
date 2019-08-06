@@ -1,70 +1,136 @@
+*{
+    margin:0;
+    padding: 0;
+}
 body{
     margin: 0px;
     padding: 0px;
-    height: 100vh;
     background: #f8f8dd;
     font-family: 'Signika', sans-serif;
     font-size: 16px;
     color: #fff;
-    /* background-image: url('img/Fondo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Welcome{
-    position: relative;
-    height: 0;
-    width: 80%;
-    background: #ffffff;
-    transition: all 1s linear;
-    border-left: 1px solid rgba(0,0,0,.125);
-    border-right: 1px solid rgba(0,0,0,.125);
-    -webkit-box-shadow: 0px 1px 21px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 1px 21px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 1px 21px 0px rgba(0,0,0,0.75);
-}
-
-.cargar{
-    height: 100vh;
+    overflow-y:scroll;
     background-image: url('img/Fondo.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed; /*efecto paralax */ 
 }
+
+
+.menu{
+    background: #243238;
+    height: 100%;
+    width: 275px; 
+    overflow-y:scroll;
+    position: fixed;
+    -webkit-box-shadow: 6px 4px 8px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 4px 8px -1px rgba(0,0,0,0.75);
+    box-shadow: 6px 4px 8px -1px rgba(0,0,0,0.75);
+    z-index: 2;
+    transition: all 1s ease;
+}
+
+.icono{
+    position: fixed;
+    color: #fff;
+    font-size: 1.3rem;
+    margin-left: 290px;
+    margin-top: 2.1%;
+    z-index: 2;
+    transition: all 1s ease;
+    cursor: pointer;
+    background: #1c2938;
+    padding: 10px 15px 10px 15px;
+    border-radius: 50%;
+}
+
+.icono:hover{
+    background: #fff;
+    color: #1c2938;
+}
+
+
+.container{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    background: transparent;
+    padding: 30px;
+    box-sizing: border-box;
+    /* margin-left: 20%; */
+    z-index: 1;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+
+
+.abrir{
+    transform: translateX(-275px);
+    box-shadow: none;
+}
+
+.ancho{
+    margin-left: 20%;
+    width: 80%;
+}
+
+.icono-posicion{
+    margin-left: 2%;
+}
+
+
+.Welcome{
+    width: 90%;
+    height: 90vh;
+    background: #ffffff8e;
+    margin: auto;
+}
+
+.segundo{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f8dd;
+    color: #333;
+    height: 600px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+canvas{
+    width: 99% !important;
+    height: 90% !important;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}
+
+footer{
+    background: #343a40;
+    bottom: 0;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease;
+}
+
 
 main{
     width: 100%;
     height: 80%;
-    margin-top: -40px;
-    background:  transparent;
+    margin-top: -30px;
+    background: transparent;
     overflow-y:scroll;
-
     display: flex;
     align-items: center;
     flex-direction: row;
     flex-flow: row wrap;
     justify-content: space-between;
 }
-
-/* Personalizar el scroll */
-main::-webkit-scrollbar{
-    width: 8px;
-}
-
-main::-webkit-scrollbar-thumb{
-    background: rgb(150, 92, 92);
-    border-radius: 4px;
-}
-
-main::-webkit-scrollbar-thumb:hover{
-    background: #e84848;
-    box-shadow: 0 0 2px 10x rgb(0, 0, 0, 0.2);
-}
-/* Fin Personalizar el scroll */
 
 /* colores dc0a2d  e84848 */
 .barra1{
@@ -84,7 +150,7 @@ main::-webkit-scrollbar-thumb:hover{
     font-family: 'Sniglet', cursive;
     color: white;
     font-size: 2.5rem;
-    margin-top: 55px;
+    margin-top: 25px;
     margin-left: 1rem;
 }
 
@@ -102,7 +168,7 @@ main::-webkit-scrollbar-thumb:hover{
 .barra1::after{
     content: '';
     margin-top: 10px;
-    margin-left: -84.4px;
+    margin-left: -84px;
     display: inline-block;
     position: absolute;
     height: 42px;
@@ -115,25 +181,6 @@ main::-webkit-scrollbar-thumb:hover{
 
 .barra1:hover::after{
     background: #27bfe6;
-}
-
-
-.barra2{
-    width: 80%;
-    height: 30px;
-    background: #e84848;
-    position: fixed;
-    bottom: 0;
-    transition: all 1s linear;
-    border-left: 2px solid rgba(0,0,0,.125);
-    border-right: 1px solid rgba(0,0,0,.125);
-    margin-left: -1px;
-}
-
-
-
-.active{
-    height: 350px;
 }
 
 .subbarra1{
@@ -172,6 +219,12 @@ main::-webkit-scrollbar-thumb:hover{
     margin-top: -9.7px;
 }
 
+.barra2{
+    width: 100%;
+    height: 50px;
+    background: #e84848;
+}
+
 .mostrar{
     position: absolute;
     height: 50px;
@@ -181,7 +234,7 @@ main::-webkit-scrollbar-thumb:hover{
     background-size: cover;
     background-repeat: no-repeat;
     margin-top: -25px;
-    margin-left: 45%;
+    margin-left: 40%;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.5s linear;
@@ -192,113 +245,13 @@ main::-webkit-scrollbar-thumb:hover{
 }
 
 
-.opciones{
-    height: 350px;
-    width: 100%;
-    margin-left: -1.5px;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    border: 1px solid rgba(0,0,0,.125);
-}
-
-.busqueda{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    background: #ffffff;
-    border: 1px solid rgba(0,0,0,.125);
-    width: 90%;
-    height: 200px;
-    margin: 12px  5px 5px 5px;
-    padding: 5px;
-}
-
-.order{
-    height: 300px;
-    width: 50%;
-    margin: 5px 5px 5px 0px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.datos{
-    position: relative;
-    margin: 5px 0 5px -5px;
-    background: #394a5a;
-    color: white;
-    height: 90px;
-    width: 90%;
-    font-size: 1.5rem;
-    outline: none;
-    border: 0;
-}
-
-
-.types{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    background: #333;
-    /* border: 1px solid rgba(0,0,0,.125); */
-    width: 40%;
-    border-radius: 4px;
-    height: 150px;
-    margin: 5px 10px 5px 5px;
-    padding: 20px;
-    overflow-y: scroll;
-}
-
-.types::-webkit-scrollbar{
-    width: 8px;
-}
-
-.types::-webkit-scrollbar-thumb{
-    background: rgb(150, 92, 92);
-    border-radius: 4px;
-}
-
-button{
-    border-radius: 4px;
-    margin: 2px;
-    background: #275879;
-    border: 0;
-    color: white;
-    height: 2rem;
-    width: 92px;
-    outline: none;
-    cursor: pointer;
-}
-
-.btn-tipo{
-    height: 25px;
-    width: 100px;
-    font-size: 16px;
-    padding: 0;
-}
-
-input[type=text]{
-    width: 90%;
-    padding: 12px 20px;
-    border-radius: 4px;
-    margin: 5px;
-    box-sizing: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-}
-
+/* ocultar */
 
 .hide{
     display: none;
 }
 
-
+/* tarjetas */
 .card{
     position: relative;
     height: 280px;
@@ -313,6 +266,23 @@ input[type=text]{
     cursor: pointer;
 }
 
+@media only screen and (max-width: 700px) {
+    .ancho {
+        width: 100%;
+    }
+    .Welcome{
+     
+        width: 100%;
+    }
+    .card{
+        width: 50%;
+        text-align: center;
+
+    }
+    main{
+        justify-content: center;
+    }
+  }
 
 .card:hover{
     transform: translateY(-15px);
@@ -324,7 +294,7 @@ input[type=text]{
     width: 80%;
     padding: 10%;
     height: 100px;
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 10px 5px 5px;
 }
 
 .card-title{
@@ -362,34 +332,6 @@ input[type=text]{
     width: 100px;
     text-align: center;
     border-radius: 3px;
-}
-
-@media screen and (max-width: 992px){
-    
-    .Welcome{
-        width: 99%;
-    }
-
-    main{
-        width: 100%;
-            
-    }
-    
-    .barra1{
-        width: 100%;
-        
-    }
-
-    .barra2{
-        width: 98.8%;
-
-    }
-
-    .card{
-        width: 30%;
-    }
-
-
 }
 
 /* clases de pokemon */
@@ -464,4 +406,139 @@ input[type=text]{
 
 .agua{
     background: #4592c4;
+}
+
+/* estilos del menú */
+.header{
+    background: transparent;
+    width: 275px; 
+    color: #ccc;
+    font-size: 16px;
+    /* background: red; */
+    padding: 20px;
+    border-bottom: 1px solid #707070;
+}
+.user-image{
+    height: 70px;
+    width: 70px;   
+    border-radius: 5px;
+    float: left;
+    margin-right: 10px;
+}
+
+.info-user{
+    display: flex;
+    flex-direction: column;
+    /* background: blue; */
+    line-height: 20px;
+}
+.user-role{
+    color: #ccccccda;
+    font-size: 13px;
+}
+.user-status > i{
+    font-size: 8px;
+    margin-right: 4px;
+    color: #5cb85c;
+}
+.user-status > span {
+    font-size: 12px;
+}
+
+/* estilos del buscador */
+.buscador{
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #707070;
+}
+
+.group{
+    border-radius: 5px;
+    background: rgba(104, 103, 103, 0.726);
+}
+
+
+.group > input{
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    background: transparent;
+}
+.group >input::placeholder , i{
+    color: rgba(204, 204, 204, 0.719);
+}
+
+ /* lista */
+a{
+    /* color: white; */
+    text-decoration: none;
+}
+
+
+.lista{
+    /* background: red; */
+    width: 275px;
+    color: #ccccccda;
+    font-size: 14px;
+}
+
+.lista   li   a{
+    display: block;
+    color: #ccccccda;
+    padding: 5px;
+    padding: 15px 20px;
+    /* background: #576574; */
+}
+
+/* El listado dropdow */
+.listado {
+    color: #ccccccda;
+    list-style: none;
+    max-height: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: rgba(54, 74, 83, 0.986);
+    -webkit-transition:  max-height 0.3s ease;
+}
+
+.listado a {
+    margin-left: 20px;
+    /* background: red; */
+}
+
+
+.lista li .dropdown::after{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+    content: "\f105";
+    float: right;
+}
+
+.activar {
+    max-height: 600px;
+} 
+
+/* Personalizar el scroll */
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #383838;
+    box-shadow: 0 0 2px 10x #ccc;
+}
+/* Fin Personalizar el scroll */
+
+
+/* personalizo scroll del menú */
+.menu::-webkit-scrollbar{
+    display: none;
 }
