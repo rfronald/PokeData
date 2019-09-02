@@ -13,7 +13,7 @@ const btntoggle = document.querySelector(".icono");
 btntoggle.addEventListener('click', ()=>{
     document.querySelector(".menu").classList.toggle('abrir');
     document.querySelector(".icono").classList.toggle('icono-posicion');
-    document.querySelector("#footer").classList.toggle('ancho');
+    // document.querySelector("#footer").classList.toggle('ancho');
     const contenedor = document.getElementsByClassName('container');
     contenedor[0].classList.toggle('ancho');
     contenedor[1].classList.toggle('ancho');
