@@ -106,7 +106,7 @@ const mostrarTipos = (objeto,num) =>{
 const loadPokemon = (objeto) => { 
 	let mostrar = ' ';
 	for (let i = 0; i < objeto.length; i++) {
-        let tipos = mostrarTipos(pokeData,i);
+        let tipos = mostrarTipos(objeto,i);
         let llamar = `
         <div class="card">
         <img src="${objeto[i].img}" alt="" class="card-img">
@@ -136,10 +136,78 @@ principal.innerHTML = loadPokemon(pokeData);
     Pokedata es nuestro objeto
 */
 
+
+// Ordenar de ABC
+const ordenar1 = document.getElementById('ordenar-asc');
+const ordenar2 = document.getElementById('ordenar-dsc');
+
+ordenar1.addEventListener('click', ()=>{
+      principal.innerHTML = loadPokemon(ordenarAbc(pokeData,'asc'));
+});
+
+ordenar2.addEventListener('click', ()=>{
+      principal.innerHTML = loadPokemon(ordenarAbc(pokeData,'dsc'));
+});
+
+// Ordenar por frecuencia de aparición
+
+const ordenarSpaw1 = document.getElementById('ordenarSpaw-asc');
+const ordenarSpaw2 = document.getElementById('ordenarSpaw-dsc');
+
+ordenarSpaw1.addEventListener('click', ()=>{
+      principal.innerHTML = loadPokemon(ordenarSpaw(pokeData));
+});
+
+ordenarSpaw2.addEventListener('click', ()=>{
+      principal.innerHTML = loadPokemon(ordenarSpaw(pokeData).reverse());
+});
+
+
+// Filtrar por tipos
+const poketipo = document.getElementsByClassName('poketipo');
+
+for(let i = 0; i < poketipo.length; i++){
+  poketipo[i].addEventListener("click", ()=>{
+    const filtrado = filtrarTipo(pokeData,poketipo[i].innerHTML);
+    principal.innerHTML = loadPokemon(filtrado);
+  });
+}
+
+// Filtrar por Debilidad
+const debilidadpoke = document.getElementsByClassName('pokedebilidad');
+for(let i = 0; i < debilidadpoke.length; i++){
+  debilidadpoke[i].addEventListener("click", ()=>{
+    const filtrado = filtrarDebilidad(pokeData,debilidadpoke[i].innerHTML);
+    principal.innerHTML = loadPokemon(filtrado);
+  });
+}
+
+// filtrar por huevos en kilometros
+
+const pokehuevo = document.getElementsByClassName('pokehuevo');
+for(let i = 0; i < pokehuevo.length; i++){
+  pokehuevo[i].addEventListener("click", ()=>{
+    const filtrado = filtrarhuevo(pokeData,pokehuevo[i].innerHTML);
+    principal.innerHTML = loadPokemon(filtrado);
+  });
+}
+
+// BUSCAR
+/* Haciendo el event target para buscar */
+const Search = document.getElementById('Search');
+Search.addEventListener('input', (event) => {
+  const pokemonBuscado = busco(pokeData, event.target.value.toLowerCase());
+  principal.innerHTML = loadPokemon(pokemonBuscado);
+});
+
+
+
+
 const tipos = {
     tipo : ['Grass','Poison','Fire','Flying','Water','Bug','Normal','Electric','Ground','Fighting','Psychic','Rock','Ice','Ghost','Ghost'],
     relleno: ['#9bcc50','#b97fc9','#fd7d24']
 };
+
 
 // Gráfico
 var ctx = document.getElementById('myChart');
